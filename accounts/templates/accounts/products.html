@@ -1,0 +1,45 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+	<br>
+	<div class="row">
+		<div class="col-md">
+			<div class="card card-body">
+				<h5>Products</h5>
+			</div>
+			<div class="card card-body">
+				<table class="table">
+					<tr>
+						<th>Product</th>
+						
+						<th>Price</th>
+					</tr>
+					
+					{% for i in prod %}
+						<tr>
+							<td>{{i.0}}</td>
+							<td>{{i.1}}</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+		
+	</div>
+	<a class="btn btn-primary btn-sm btn-block" href="http://localhost:8000/add_products/">Create Order</a>
+{% endblock content %}
+
+<style>
+  table {
+    animation: fadeIn 2s;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>

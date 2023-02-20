@@ -1,0 +1,109 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+<html>
+<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+<script>
+    var textWrapper = document.querySelector('.ml6 .letters');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+    anime.timeline({loop: false})
+        .add({
+            targets: '.ml6 .letter',
+            translateY: ["1.1em", 0],
+            translateZ: 0,
+            duration: 750,
+            delay: (el, i) => 50 * i
+        }).add({
+        targets: '.ml6',
+        opacity: 0,
+        duration: 1000,
+        easing: "easeOutExpo",
+        delay: 1000
+    });
+</script>
+    <head>
+        <title>Signup Page</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #F2F2F2;
+            }
+            button{
+                background-color: #4CAF50;
+                width: 25%;
+                padding: 15px;
+                color: white;
+                border: none;
+                float: center;
+                font-size: 15px;
+            }
+            label{
+                font-size: 20px;
+            }
+            form{
+                border: 3px solid #f1f1f1;
+            }
+            input[type=email],input[type=password]{
+                width: 50%;
+                font-size: 15px;
+                margin: 8px 0px;
+                padding: 12px 20px;
+                display: inline-block;
+                border: 2px solid #4CAF50;
+                box-sizing: border-box;
+            }
+            button:hover{
+                opacity:0.7;
+                animation: shake 0.5s;
+                animation-iteration-count: infinite;
+            }
+            @keyframes shake {
+                0% { transform: translate(1px, 1px) rotate(0deg); }
+                10% { transform: translate(-1px, -2px) rotate(-1deg); }
+                20% { transform: translate(-3px, 0px) rotate(1deg); }
+                30% { transform: translate(3px, 2px) rotate(0deg); }
+                40% { transform: translate(1px, -1px) rotate(1deg); }
+                50% { transform: translate(-1px, 2px) rotate(-1deg); }
+                60% { transform: translate(-3px, 1px) rotate(0deg); }
+                70% { transform: translate(3px, 1px) rotate(-1deg); }
+                80% { transform: translate(-1px, -1px) rotate(1deg); }
+                90% { transform: translate(1px, 2px) rotate(0deg); }
+                100% { transform: translate(1px, -2px) rotate(-1deg); }
+            }
+            .container{
+                padding: 50px;
+                background-color: white;
+                border: 2px solid #4CAF50;
+                border-radius: 5px;
+            }
+            .imgcontainer {
+                text-align: center;
+                margin: 24px 0 12px 0;
+            }
+              
+            img.avatar {
+                width: 20%;
+                border-radius: 50%;
+            }  
+        </style>
+    </head>
+    <body>
+        <center><h1 style="color: #4CAF50;">Login Form</h1></center>
+        <form action="#" method="post">
+            {% csrf_token %}
+            {% load static %}
+            <center><div class="container">
+                <div class="imgcontainer">
+                    <img src="{% static 'images/avatar_img1.jpg' %}" alt="Avatar" class="avatar">
+                </div>
+                <label for ='email  ' style="color: #4CAF50;"><b>UserEmail :  </b></label>
+                <input type="email" placeholder="Enter email" name="email" float="right"  required><br>  
+                <label for='password' style="color: #4CAF50;"><b>Password : </b></label>
+                <input type="password" placeholder="Enter Password" name="password" required><br>  
+                <button type="submit"><b>Login</b></button><br>     
+                Don't have accounct <a href="http://localhost:8000/signup/" style="color: #4CAF50; font-weight: bold;"> register </a>
+            </div></center>
+        </form>
+    </body>
+</html>                  
+{% endblock %}

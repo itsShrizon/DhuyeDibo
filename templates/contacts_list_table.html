@@ -1,0 +1,306 @@
+
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Users List</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>First Name</th>
+							<th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Email</th>
+                            <th>Password</th>
+
+						</tr>
+					<a href="#" class="btn btn-primary">Create Users</a>
+						{% for i in lst %}
+						
+							<tr>
+								<td>{{i.0}}</td>
+                                <td>{{i.1}}</td>
+                                <td>{{i.2}}</td>
+                                <td>{{i.3}}</td>
+                                <td>{{i.4}}</td>
+								
+								<td><a class="btn btn-sm btn-danger" href="http://localhost:8000/user_delete/">Delete</a></td>                                
+								
+								
+								
+							</tr>
+						{% endfor %}
+					</table>
+				</div>
+				<div class="card card-body">
+					<h5>Manager Info</h5>
+				</div>
+				<div class="card card-body">
+					<a href="#" class="btn btn-primary">Create Manager</a>
+					<table class="table">
+						<tr>
+							<th>Name</th> 
+							<th>Address Name</th>
+                            <th>Joining Date</th>
+                            <th>Date of Birth</th>
+                           
+
+						</tr>
+						
+						{% for i in manager_lst %}
+						
+							<tr>
+                                <td>{{i.2}}</td> 
+                                <td>{{i.1}}</td>
+                                <td>{{i.3}}</td>
+                                <td>{{i.4}}</td>
+								
+								<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>
+                                
+					
+								
+								
+							</tr>
+
+						{% endfor %}
+						
+					</table>
+					
+				</div>
+				
+				<div class="card card-body">
+					<h5>Branch</h5>
+				</div>
+				<div class="card card-body">
+					<a href="#" class="btn btn-primary">Create Branch</a>
+					<table class="table">
+						<tr>
+							<th>Name</th> 
+							<th>Address</th>
+                            <th>Trade ID</th>
+                            
+                           
+
+						</tr>
+						
+						{% for i in lst_branch %}
+						
+							<tr>
+                                <td>{{i.0}}</td> 
+                                <td>{{i.1}}</td>
+								<td>{{i.2}}</td>
+
+								
+								<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>
+                                
+					
+								
+								
+							</tr>
+
+						{% endfor %}
+						
+					</table>
+				</div>
+
+
+
+				<div class="card card-body">
+					<h5>Laundryman</h5>
+				</div>
+				<div class="card card-body">
+					<a href="#" class="btn btn-primary">Add Laundryman</a>
+					<table class="table">
+						<tr>
+							<th>Laundryman ID</th> 
+							<th>Name</th>
+							<th>Date of birth</th>
+                            <th>Joining Date</th>
+
+							
+
+                            
+                           
+
+						</tr>
+						
+						{% for i in lst_laundryman %}
+						
+							<tr>
+                                <td>{{i.0}}</td> 
+                                <td>{{i.1}}</td>
+								<td>{{i.2}}</td>
+								<td>{{i.3}}</td>
+
+
+
+								
+								<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>
+                                
+					
+								
+								
+							</tr>
+
+						{% endfor %}
+						
+					</table>
+				</div>
+				
+				
+				<div class="card card-body">
+					<h5>Delivaryman</h5>
+				</div>
+				<div class="card card-body">
+					<a href="#" class="btn btn-primary">Add Delivaryman</a>
+					<table class="table">
+						<tr>
+							<th>Deliveryman ID</th> 
+							<th>Name</th>
+							<th>Joining Date</th>
+							<th>Date of birth</th>
+                            
+
+							
+
+                            
+                           
+
+						</tr>
+						
+						{% for i in lst_delivaryman %}
+						
+							<tr>
+                                <td>{{i.0}}</td> 
+                                <td>{{i.1}}</td>
+								<td>{{i.2}}</td>
+								<td>{{i.3}}</td>
+
+
+
+								
+								<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>
+                                
+					
+								
+								
+							</tr>
+
+						{% endfor %}
+						
+					</table>
+				</div>
+
+
+				<div class="card card-body">
+					<h5>Laundryman</h5>
+				</div>
+				<div class="card card-body">
+					<a href="#" class="btn btn-primary">Add Delivaryman</a>
+					<table class="table">
+						<tr>
+							<th>Deliveryman ID</th> 
+							<th>Name</th>
+							<th>Joining Date</th>
+							<th>Date of birth</th>
+                            
+
+							
+
+                            
+                           
+
+						</tr>
+						
+						{% for i in lst_delivaryman %}
+						
+							<tr>
+                                <td>{{i.0}}</td> 
+                                <td>{{i.1}}</td>
+								<td>{{i.2}}</td>
+								<td>{{i.3}}</td>
+
+
+
+								
+								<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>
+                                
+					
+								
+								
+							</tr>
+
+						{% endfor %}
+						
+					</table>
+				</div>
+
+
+			</div>
+
+
+			<div >
+				<h5></h5>
+			</div>
+			<div class="form">
+				<a href="http://localhost:8000/create_order/" class="btn btn-primary">Add Orders</a>
+				<table class="table">
+					<tr>
+						<th>Name</th> 
+						<th>Quantity</th>
+						<th>Placement time</th>
+						<th>Payment Info</th>
+						
+						<th>Delivaryman Name</th>
+						
+
+						
+
+						
+					   
+
+					</tr>
+					
+					{% for i in lst_orders %}
+					
+						<tr>
+							<td>{{i.0}}</td> 
+							<td>{{i.1}}</td>
+							<td>{{i.2}}</td>
+							<td>{{i.3}}</td>
+							<td>{{i.4}}</td>
+							
+	
+
+
+
+
+							
+							<td><a class="btn btn-sm btn-danger" href="http://localhost:8000/delete_order/">Delete</a></td>
+							
+				
+							
+							
+						</tr>
+
+					{% endfor %}
+					
+				</table>
+			</div>
+
+
+		</div>
+
+				
+			  
+			  </body>
+			
+		</div>
+
+{% endblock content %}
