@@ -1,0 +1,40 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+
+
+    <body>
+        <center><h1>Order Check Out form</h1></center>
+        <form action="#" method="post">
+            {% csrf_token %}
+            {% load static %}
+            <center><div class="container">
+                <div class="imgcontainer">
+                    <img src="{% static 'avatar_img2.png' %}" alt="Avatar" class="avatar">
+                </div>
+                <label for='quantity'><b>Quantity </b></label>
+		        <input type='number' placeholder="Enter Quantity" name='quantity' required><br>
+                <label for='customer_ID'><b>Customer ID </b></label>
+		        <input type='number' placeholder="Customer ID" name='customer_ID' required><br>
+                <label for='order' ><b>order : </b></label>
+		        <input type='radio' name='order_name' value='Regular Wash' required>
+		        <label ><b>Regular Wash</b></label>
+		        <input type='radio' name='order_name' value='Dry Wash' required>
+		        <label ><b>Dry Wash</b></label><br>
+		        
+                <label for='Address' ><b>Address bar : </b></label>
+                <input type='text' placeholder="Write your address here"  name='Address' required><br>
+                
+                                
+                
+                <label for="Delivary_ID">Delivaryman:</label>
+                <select id="Delivary_ID" name="Delivary_ID">
+                  <option value="d1">Sagor</option>
+                  <option value="d2">Alamin</option>
+
+                </select>
+
+    <input type="submit" name="Submit"></input>
+</form>
+
+{% endblock %}

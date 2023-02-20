@@ -1,0 +1,86 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+<br>
+<html>
+    <head>
+        <title>Delete Page</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: white;
+            }
+            button{
+                background-color: #4CAF50;
+                width: 25%;
+                padding: 15px;
+                color: black;
+                border: none;
+                float: center;
+                font-size: 15px;
+                transition: all 0.5s;
+            }
+            label{
+                font-size: 20px;
+            }
+            form{
+                border: 3px solid #f1f1f1;
+            }
+            input[type=email],input[type=text]{
+                width: 50%;
+                font-size: 15px;
+                margin: 8px 0px;
+                padding: 12px 20px;
+                display: inline-block;
+                border: 2px solid green;
+                box-sizing: border-box;
+            }
+            input[type=radio]{
+                height: 18px;
+                width: 18px;
+            }
+            button:hover{
+                opacity: 0.7;
+                transform: translateY(-5px);
+            }
+            .container{
+                padding: 50px;
+                background-color: white;
+            }
+            .imgcontainer {
+                text-align: center;
+                margin: 24px 0 12px 0;
+            }
+              
+            img.avatar {
+                width: 10%;
+                border-radius: 50%;
+            }  
+        </style>
+    </head>
+    <body>
+        <h1>Delete User</h1>
+        <form action="{% url 'user_delete' %}" method="get">
+            {% csrf_token %}
+            {% load static %}
+            {% for i in lst %}
+            <div class="container">
+                
+
+                <label for='first_name'><b>First Name : </b></label>
+		        <input type='text' placeholder="{{i.0}}" name='first_name' ><br>
+		        <label for='last_name'><b>Last Name :</b></label>
+		        <input type='text' placeholder='{{i.1}}' name='last_name' ><br>
+		        <label for='sex'><b>User Sex:</b></label>
+		        <input type='text' placeholder='{{i.2}}' name='sex' ><br>
+            	<label for ='email'><b>Email ID :  </b></label>
+            	<input type="email" placeholder="{{i.3}}" name="email" float="right"  ><br>  
+            	<label for='password'><b>Password : </b></label>
+            	<input type="text" placeholder="{{i.4}}" name="password" ><br>  
+            	<button type="submit" <b>Delete</b></button><br>     
+            </div>
+        </form>
+        {% endfor %}
+    </body>
+</html>
+
+{% endblock %}
